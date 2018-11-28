@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="tp-trafico-back">
+		<class>mx.com.tp.trafico.entity.CatMenu</class>
+		<class>mx.com.tp.trafico.entity.CatPrefijo</class>
+		<class>mx.com.tp.trafico.entity.CatRol</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoCanal</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoConciliacion</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoConfiguracionFtp</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoConfiguracionRuta</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoEscaleta</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoMenuRol</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoPauta</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoUsuario</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoCliente</class>
+		<class>mx.com.tp.trafico.entity.TpTraficoSpot</class>
+	</persistence-unit>
+</persistence>
