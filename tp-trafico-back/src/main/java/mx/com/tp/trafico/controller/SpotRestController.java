@@ -16,51 +16,59 @@ import mx.com.tp.trafico.dto.request.ActualizaSpotDTORequest;
 import mx.com.tp.trafico.dto.request.GuardaSpotDTORequest;
 import mx.com.tp.trafico.dto.response.ActualizaSpotDTOResponse;
 import mx.com.tp.trafico.dto.response.BusquedaSpotDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaSpotIngestadoDTOResponse;
 import mx.com.tp.trafico.dto.response.ConsultaSpotDTOResponse;
 import mx.com.tp.trafico.dto.response.EliminaSpotDTOResponse;
 import mx.com.tp.trafico.dto.response.GuardaSpotDTOResponse;
-import mx.com.tp.trafico.manager.SpotManager;
+import mx.com.tp.trafico.service.SpotService;
 
 @RestController
 @RequestMapping("/spot")
 public class SpotRestController {
 
 	@Autowired
-	public SpotManager spotManager;
-	
+	public SpotService spotService;
+
 	@GetMapping("/list")
-	public ResponseEntity<ConsultaSpotDTOResponse> consultaSpots(){
-		ConsultaSpotDTOResponse responseManager = spotManager.listaSpots();
+	public ResponseEntity<ConsultaSpotDTOResponse> consultaSpots() {
+		ConsultaSpotDTOResponse responseManager = spotService.listaSpots();
 		return new ResponseEntity<ConsultaSpotDTOResponse>(responseManager, HttpStatus.OK);
-		
+
 	}
-	
+
 	@PostMapping("/save")
-	public ResponseEntity<GuardaSpotDTOResponse> guardarSpot(@RequestBody GuardaSpotDTORequest request){
-		GuardaSpotDTOResponse responseManager = spotManager.guardarSpot(request);
+	public ResponseEntity<GuardaSpotDTOResponse> guardarSpot(@RequestBody GuardaSpotDTORequest request) {
+		GuardaSpotDTOResponse responseManager = spotService.guardarSpot(request);
 		return new ResponseEntity<GuardaSpotDTOResponse>(responseManager, HttpStatus.OK);
-		
+
 	}
-	
+
 	@GetMapping("/findById/{id}")
-	public ResponseEntity<BusquedaSpotDTOResponse> buscarByIdSpot(@PathVariable(value="id") Long idspot){
-		BusquedaSpotDTOResponse responseManager = spotManager.busquedaSpotId(idspot);
+	public ResponseEntity<BusquedaSpotDTOResponse> buscarByIdSpot(@PathVariable(value = "id") Long idspot) {
+		BusquedaSpotDTOResponse responseManager = spotService.busquedaSpotId(idspot);
 		return new ResponseEntity<BusquedaSpotDTOResponse>(responseManager, HttpStatus.OK);
-		
+
 	}
-	
+
 	@PutMapping("/update/{id}")
-	public ResponseEntity<ActualizaSpotDTOResponse> actualizaSpot(@RequestBody ActualizaSpotDTORequest request, @PathVariable(value="id") Long idspot){
-		ActualizaSpotDTOResponse responseManager = spotManager.actualizarSpot(request, idspot);
+	public ResponseEntity<ActualizaSpotDTOResponse> actualizaSpot(@RequestBody ActualizaSpotDTORequest request,
+			@PathVariable(value = "id") Long idspot) {
+		ActualizaSpotDTOResponse responseManager = spotService.actualizarSpot(request, idspot);
 		return new ResponseEntity<ActualizaSpotDTOResponse>(responseManager, HttpStatus.OK);
-		
-		
+
 	}
-	
+
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<EliminaSpotDTOResponse> eliminaSpot(@PathVariable(value="id") Long idspot){
-		EliminaSpotDTOResponse responseManager = spotManager.eliminarSpotId(idspot);
+	public ResponseEntity<EliminaSpotDTOResponse> eliminaSpot(@PathVariable(value = "id") Long idspot) {
+		EliminaSpotDTOResponse responseManager = spotService.eliminarSpotId(idspot);
 		return new ResponseEntity<EliminaSpotDTOResponse>(responseManager, HttpStatus.OK);
-		
+
+	}
+
+	//lista de spots en estatus ingestado
+	@GetMapping("/list/ingestados")
+	public ResponseEntity<BusquedaSpotIngestadoDTOResponse> busquedaSpotIngestados() {
+		BusquedaSpotIngestadoDTOResponse responseManager = spotService.busquedaSpotIngesta();
+		return new ResponseEntity<BusquedaSpotIngestadoDTOResponse>(responseManager, HttpStatus.OK);
 	}
 }

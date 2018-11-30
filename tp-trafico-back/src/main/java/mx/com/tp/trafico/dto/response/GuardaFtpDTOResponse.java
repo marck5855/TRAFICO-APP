@@ -1,8 +1,13 @@
 package mx.com.tp.trafico.dto.response;
 
+import java.io.Serializable;
 
-public class GuardaFtpDTOResponse extends SerealizableResponse {
+public class GuardaFtpDTOResponse implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7070803382386957569L;
 	private boolean guardo;
 
 	public GuardaFtpDTOResponse(boolean guardo) {

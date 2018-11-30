@@ -2,8 +2,10 @@ package mx.com.tp.trafico.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -33,7 +35,7 @@ public class TpTraficoSpot implements Serializable {
 	private Time duracion;
 
 	@Column(name="ESTATUS")
-	private int estatus;
+	private String estatus;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="FECHA_CREACION")
@@ -62,13 +64,7 @@ public class TpTraficoSpot implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_PREFIJO")
 	private CatPrefijo catPrefijo;
-
-	@Column(name="PATHPROXY")
-	private String pathproxy;
-
-	@Column(name="PATHTARGET")
-	private String pathtarget;
-
+	
 	@Column(name="PRECIO1A")
 	private int precio1a;
 
@@ -123,6 +119,14 @@ public class TpTraficoSpot implements Serializable {
 	@Column(name="VERSION")
 	private String version;
 
+	//bi-directional many-to-one association to TpTraficoEscaleta
+//	@OneToMany(mappedBy="tpTraficoSpot")
+//	private List<TpTraficoEscaleta> tpTraficoEscaletas;
+//
+//	//bi-directional many-to-one association to TpTraficoPauta
+//	@OneToMany(mappedBy="tpTraficoSpot")
+//	private List<TpTraficoPauta> tpTraficoPautas;
+
 	public TpTraficoSpot() {
 	}
 
@@ -166,11 +170,11 @@ public class TpTraficoSpot implements Serializable {
 		this.duracion = duracion;
 	}
 
-	public int getEstatus() {
+	public String getEstatus() {
 		return this.estatus;
 	}
 
-	public void setEstatus(int estatus) {
+	public void setEstatus(String estatus) {
 		this.estatus = estatus;
 	}
 
@@ -228,22 +232,6 @@ public class TpTraficoSpot implements Serializable {
 
 	public void setCatPrefijo(CatPrefijo catPrefijo) {
 		this.catPrefijo = catPrefijo;
-	}
-
-	public String getPathproxy() {
-		return this.pathproxy;
-	}
-
-	public void setPathproxy(String pathproxy) {
-		this.pathproxy = pathproxy;
-	}
-
-	public String getPathtarget() {
-		return this.pathtarget;
-	}
-
-	public void setPathtarget(String pathtarget) {
-		this.pathtarget = pathtarget;
 	}
 
 	public int getPrecio1a() {
@@ -389,5 +377,49 @@ public class TpTraficoSpot implements Serializable {
 	public void setVersion(String version) {
 		this.version = version;
 	}
+
+//	public List<TpTraficoEscaleta> getTpTraficoEscaletas() {
+//		return this.tpTraficoEscaletas;
+//	}
+//
+//	public void setTpTraficoEscaletas(List<TpTraficoEscaleta> tpTraficoEscaletas) {
+//		this.tpTraficoEscaletas = tpTraficoEscaletas;
+//	}
+//
+//	public TpTraficoEscaleta addTpTraficoEscaleta(TpTraficoEscaleta tpTraficoEscaleta) {
+//		getTpTraficoEscaletas().add(tpTraficoEscaleta);
+//		tpTraficoEscaleta.setTpTraficoSpot(this);
+//
+//		return tpTraficoEscaleta;
+//	}
+//
+//	public TpTraficoEscaleta removeTpTraficoEscaleta(TpTraficoEscaleta tpTraficoEscaleta) {
+//		getTpTraficoEscaletas().remove(tpTraficoEscaleta);
+//		tpTraficoEscaleta.setTpTraficoSpot(null);
+//
+//		return tpTraficoEscaleta;
+//	}
+//
+//	public List<TpTraficoPauta> getTpTraficoPautas() {
+//		return this.tpTraficoPautas;
+//	}
+//
+//	public void setTpTraficoPautas(List<TpTraficoPauta> tpTraficoPautas) {
+//		this.tpTraficoPautas = tpTraficoPautas;
+//	}
+//
+//	public TpTraficoPauta addTpTraficoPauta(TpTraficoPauta tpTraficoPauta) {
+//		getTpTraficoPautas().add(tpTraficoPauta);
+//		tpTraficoPauta.setTpTraficoSpot(this);
+//
+//		return tpTraficoPauta;
+//	}
+//
+//	public TpTraficoPauta removeTpTraficoPauta(TpTraficoPauta tpTraficoPauta) {
+//		getTpTraficoPautas().remove(tpTraficoPauta);
+//		tpTraficoPauta.setTpTraficoSpot(null);
+//
+//		return tpTraficoPauta;
+//	}
 
 }

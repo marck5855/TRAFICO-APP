@@ -20,43 +20,43 @@ import mx.com.tp.trafico.dto.response.ConsultaRutaDTOResponse;
 import mx.com.tp.trafico.dto.response.EliminarRutaDTOResponse;
 import mx.com.tp.trafico.dto.request.GuardaRutaDTORequest;
 import mx.com.tp.trafico.dto.response.GuardaRutaDTOResponse;
-import mx.com.tp.trafico.manager.ConfiguracioRutaManager;
+import mx.com.tp.trafico.service.ConfiguracionRutaService;
 
 @RestController
 @RequestMapping("/ruta")
 public class ConfiguracionRutaRestController {
 
 	@Autowired
-	private ConfiguracioRutaManager configuracioRutaManager;
+	private ConfiguracionRutaService configuracionRutaService;
 	
 	@GetMapping("/list")
 	public  ResponseEntity<ConsultaRutaDTOResponse> consultaRutas() {
-		ConsultaRutaDTOResponse responseManager = configuracioRutaManager.consultaRuta();
+		ConsultaRutaDTOResponse responseManager = configuracionRutaService.consultaRuta();
 		return new ResponseEntity<ConsultaRutaDTOResponse>(responseManager, HttpStatus.OK);
 	}
 	
 	@PostMapping("/save")
 	public ResponseEntity<GuardaRutaDTOResponse> guardarRuta(@RequestBody GuardaRutaDTORequest request) {
 		System.out.println(ToStringBuilder.reflectionToString(request));
-		GuardaRutaDTOResponse responseManager = configuracioRutaManager.guardaRuta(request);
+		GuardaRutaDTOResponse responseManager = configuracionRutaService.guardaRuta(request);
 		return new ResponseEntity<GuardaRutaDTOResponse>(responseManager, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<EliminarRutaDTOResponse> eliminarRuta(@PathVariable(value="id") Long idruta) {
-		EliminarRutaDTOResponse responseManager = configuracioRutaManager.eliminaRuta(idruta);
+		EliminarRutaDTOResponse responseManager = configuracionRutaService.eliminaRuta(idruta);
 		return new ResponseEntity<EliminarRutaDTOResponse>(responseManager, HttpStatus.OK);
 	}
 	
 	@GetMapping("/findById/{id}")
 	public ResponseEntity<BusquedaRutaDTOResponse> busquedaRuta(@PathVariable(value="id") Long idruta) {
-		BusquedaRutaDTOResponse responseManager = configuracioRutaManager.buscaRuta(idruta);
+		BusquedaRutaDTOResponse responseManager = configuracionRutaService.buscaRuta(idruta);
 		return new ResponseEntity<BusquedaRutaDTOResponse>(responseManager , HttpStatus.OK);
 	}
 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<ActualizaRutaDTOResponse> actualizarRuta(@RequestBody ActualizaRutaDTORequest request, @PathVariable(value="id") Long idruta){
-		ActualizaRutaDTOResponse responseManager = configuracioRutaManager.actualizaRuta(request, idruta);
+		ActualizaRutaDTOResponse responseManager = configuracionRutaService.actualizaRuta(request, idruta);
 		return new ResponseEntity<ActualizaRutaDTOResponse>(responseManager, HttpStatus.OK);
 	}
 }

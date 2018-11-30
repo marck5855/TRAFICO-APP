@@ -1,12 +1,16 @@
 package mx.com.tp.trafico.dto.response;
 
+import java.io.Serializable;
 import java.util.List;
 
-import mx.com.tp.trafico.entity.TpTraficoCanal;
 import mx.com.tp.trafico.entity.TpTraficoConfiguracionRuta;
 
-public class ConsultaRutaDTOResponse {
+public class ConsultaRutaDTOResponse implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7217678511246518810L;
 	private List<TpTraficoConfiguracionRuta> rutas;
 
 	public ConsultaRutaDTOResponse(List<TpTraficoConfiguracionRuta> rutas) {

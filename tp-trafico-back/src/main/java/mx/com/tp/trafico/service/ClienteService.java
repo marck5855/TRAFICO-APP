@@ -1,17 +1,25 @@
 package mx.com.tp.trafico.service;
 
-import java.util.List;
-
-import mx.com.tp.trafico.entity.TpTraficoCliente;
+import mx.com.tp.trafico.dto.request.ActualizaClienteDTORequest;
+import mx.com.tp.trafico.dto.request.GuardaClienteDTORequest;
+import mx.com.tp.trafico.dto.response.ActualizaClienteDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaClienteDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaClienteSpotDTOResponse;
+import mx.com.tp.trafico.dto.response.ConsultaClienteDTOResponse;
+import mx.com.tp.trafico.dto.response.EliminaClienteDTOResponse;
+import mx.com.tp.trafico.dto.response.GuardaClienteDTOResponse;
 
 public interface ClienteService {
 
-	public List<TpTraficoCliente> finAll();
-	
-	public TpTraficoCliente saveCliente(TpTraficoCliente cliente); 
+	public ConsultaClienteDTOResponse listaClientes();
 
-	public void deleteCliente (Long id);
-	
-	public TpTraficoCliente findByIidCliente (Long id);
- 
+	public GuardaClienteDTOResponse guardarCanal(GuardaClienteDTORequest request);
+
+	public BusquedaClienteDTOResponse busquedaClienteId(Long id);
+
+	public EliminaClienteDTOResponse eliminarClienteId(Long id);
+
+	public ActualizaClienteDTOResponse actualizaCliente(ActualizaClienteDTORequest request, Long id);
+
+	public BusquedaClienteSpotDTOResponse busquedaClienteSpot();
 }

@@ -1,10 +1,14 @@
 package mx.com.tp.trafico.dto.request;
 
-import java.sql.Time;
+import java.io.Serializable;
 import java.util.Date;
 
-public class ActualizaClienteDTORequest extends SerializableRequest {
+public class ActualizaClienteDTORequest implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8876081383871944186L;
 	private Date fechaModificacion;
 	private Date fechaRegistro;
 	private String nombre;

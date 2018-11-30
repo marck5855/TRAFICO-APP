@@ -1,17 +1,23 @@
 package mx.com.tp.trafico.service;
 
-import java.util.List;
-
-import mx.com.tp.trafico.entity.TpTraficoUsuario;
+import mx.com.tp.trafico.dto.request.ActualizaUsuarioDTORequest;
+import mx.com.tp.trafico.dto.request.GuardaUsuarioDTORequest;
+import mx.com.tp.trafico.dto.response.ActualizaUsuarioDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaUsuarioDTOResponse;
+import mx.com.tp.trafico.dto.response.ConsultaUsuarioDTOResponse;
+import mx.com.tp.trafico.dto.response.EliminaUsuarioDTOResponse;
+import mx.com.tp.trafico.dto.response.GuardaUsuarioDTOResponse;
 
 public interface UsuarioService {
 
-	public List<TpTraficoUsuario> finAll();
-	
-	public TpTraficoUsuario saveUsuario (TpTraficoUsuario usuario); 
+	public ConsultaUsuarioDTOResponse consultaUsuario();
 
-	public void deleteUsuario (Long id);
-	
-	public TpTraficoUsuario findByIidUsuario (Long id);
+	public GuardaUsuarioDTOResponse guardarUsuario(GuardaUsuarioDTORequest request);
+
+	public BusquedaUsuarioDTOResponse buscarUsuarioId(Long id);
+
+	public EliminaUsuarioDTOResponse eliminarUsuario(Long id);
+
+	public ActualizaUsuarioDTOResponse actualizaUsuario(ActualizaUsuarioDTORequest request, Long id);
+
 }
-

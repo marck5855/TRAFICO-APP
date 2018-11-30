@@ -1,12 +1,13 @@
 package mx.com.tp.trafico.dto.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import java.io.Serializable;
 
-import mx.com.tp.trafico.vo.CanalVO;
+public class ActualizaRutaDTOResponse implements Serializable{
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class ActualizaRutaDTOResponse {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5992118217592622287L;
 	protected boolean success;
 	
 	public ActualizaRutaDTOResponse(boolean success) {

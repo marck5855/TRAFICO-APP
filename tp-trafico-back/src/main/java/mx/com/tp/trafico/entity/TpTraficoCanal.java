@@ -48,8 +48,8 @@ public class TpTraficoCanal implements Serializable {
 	private String tipoVideo;
 
 	//bi-directional many-to-one association to TpTraficoPauta
-	@OneToMany(mappedBy="tpTraficoCanal")
-	private List<TpTraficoPauta> tpTraficoPautas;
+//	@OneToMany(mappedBy="tpTraficoCanal")
+//	private List<TpTraficoPauta> tpTraficoPautas;
 
 	public TpTraficoCanal() {
 	}
@@ -126,26 +126,26 @@ public class TpTraficoCanal implements Serializable {
 		this.tipoVideo = tipoVideo;
 	}
 
-	public List<TpTraficoPauta> getTpTraficoPautas() {
-		return this.tpTraficoPautas;
-	}
-
-	public void setTpTraficoPautas(List<TpTraficoPauta> tpTraficoPautas) {
-		this.tpTraficoPautas = tpTraficoPautas;
-	}
-
-	public TpTraficoPauta addTpTraficoPauta(TpTraficoPauta tpTraficoPauta) {
-		getTpTraficoPautas().add(tpTraficoPauta);
-		tpTraficoPauta.setTpTraficoCanal(this);
-
-		return tpTraficoPauta;
-	}
-
-	public TpTraficoPauta removeTpTraficoPauta(TpTraficoPauta tpTraficoPauta) {
-		getTpTraficoPautas().remove(tpTraficoPauta);
-		tpTraficoPauta.setTpTraficoCanal(null);
-
-		return tpTraficoPauta;
-	}
+//	public List<TpTraficoPauta> getTpTraficoPautas() {
+//		return this.tpTraficoPautas;
+//	}
+//
+//	public void setTpTraficoPautas(List<TpTraficoPauta> tpTraficoPautas) {
+//		this.tpTraficoPautas = tpTraficoPautas;
+//	}
+//
+//	public TpTraficoPauta addTpTraficoPauta(TpTraficoPauta tpTraficoPauta) {
+//		getTpTraficoPautas().add(tpTraficoPauta);
+//		tpTraficoPauta.setTpTraficoCanal(this);
+//
+//		return tpTraficoPauta;
+//	}
+//
+//	public TpTraficoPauta removeTpTraficoPauta(TpTraficoPauta tpTraficoPauta) {
+//		getTpTraficoPautas().remove(tpTraficoPauta);
+//		tpTraficoPauta.setTpTraficoCanal(null);
+//
+//		return tpTraficoPauta;
+//	}
 
 }

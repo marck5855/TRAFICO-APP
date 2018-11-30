@@ -1,12 +1,15 @@
 package mx.com.tp.trafico.dto.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import java.io.Serializable;
 
 import mx.com.tp.trafico.entity.CatPrefijo;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class BusquedaPrefijoDTOResponse {
+public class BusquedaPrefijoDTOResponse implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5163798720069723068L;
 	CatPrefijo prefijo;
 	protected boolean busqueda;
 

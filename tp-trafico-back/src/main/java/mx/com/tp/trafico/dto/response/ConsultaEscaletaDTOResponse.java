@@ -1,13 +1,16 @@
 package mx.com.tp.trafico.dto.response;
 
+import java.io.Serializable;
 import java.util.List;
 
-import mx.com.tp.trafico.entity.TpTraficoCanal;
 import mx.com.tp.trafico.entity.TpTraficoEscaleta;
-import mx.com.tp.trafico.entity.TpTraficoSpot;
 
-public class ConsultaEscaletaDTOResponse{
+public class ConsultaEscaletaDTOResponse implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3738896884706805768L;
 	private List<TpTraficoEscaleta> Escaletas;
 
 	public ConsultaEscaletaDTOResponse(List<TpTraficoEscaleta> Escaletas) {

@@ -1,13 +1,16 @@
 package mx.com.tp.trafico.dto.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import java.io.Serializable;
 
-import mx.com.tp.trafico.entity.TpTraficoCanal;
 import mx.com.tp.trafico.entity.TpTraficoSpot;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class BusquedaSpotDTOResponse {
+public class BusquedaSpotDTOResponse implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2898733372161801274L;
+
 	TpTraficoSpot spot;
 	protected boolean busqueda;
 	

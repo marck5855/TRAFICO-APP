@@ -1,18 +1,21 @@
 package mx.com.tp.trafico.dto.request;
 
-import java.sql.Time;
-import java.util.Date;
+import java.io.Serializable;
 
-public class ActualizaFtpDTORequest extends SerializableRequest{
+public class ActualizaFtpDTORequest implements Serializable{
 
-	private int ipServidor;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4533419799219845064L;
+	private String ipServidor;
 	private String password;
 	private String usuario;
 	
-	public int getIpServidor() {
+	public String getIpServidor() {
 		return ipServidor;
 	}
-	public void setIpServidor(int ipServidor) {
+	public void setIpServidor(String ipServidor) {
 		this.ipServidor = ipServidor;
 	}
 	public String getPassword() {

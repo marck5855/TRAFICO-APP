@@ -4,17 +4,18 @@ import java.io.Serializable;
 
 import mx.com.tp.trafico.entity.TpTraficoUsuario;
 
-public class BusquedaUsuarioDTOResponse implements Serializable{
-	
+public class BusquedaUsuarioDTOResponse implements Serializable {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	protected TpTraficoUsuario usuario;
+	private static final long serialVersionUID = 8432200553498825449L;
+
+	TpTraficoUsuario usuario;
 	protected boolean busqueda;
-	
+
 	public BusquedaUsuarioDTOResponse(boolean busqueda, TpTraficoUsuario usuario) {
-		System.out.println("BusquedaUsuarioDTOResponse-----"+ usuario);
+		System.out.println("BusquedaUsuarioDTOResponse-----" + usuario);
 		this.busqueda = busqueda;
 		this.usuario = usuario;
 	}

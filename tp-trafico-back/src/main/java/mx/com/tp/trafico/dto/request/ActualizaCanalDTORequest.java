@@ -1,10 +1,15 @@
 package mx.com.tp.trafico.dto.request;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-public class ActualizaCanalDTORequest extends SerializableRequest{
+public class ActualizaCanalDTORequest implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5946103926870338217L;
 	private Long idCanal;
 	private Time cortes;
 	private int estatus;

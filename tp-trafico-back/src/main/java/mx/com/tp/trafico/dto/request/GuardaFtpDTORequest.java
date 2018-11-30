@@ -2,7 +2,6 @@ package mx.com.tp.trafico.dto.request;
 
 import java.io.Serializable;
 
-import mx.com.tp.trafico.entity.TpTraficoCanal;
 import mx.com.tp.trafico.entity.TpTraficoConfiguracionFtp;
 
 public class GuardaFtpDTORequest implements Serializable{

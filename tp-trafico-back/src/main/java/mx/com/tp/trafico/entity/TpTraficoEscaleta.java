@@ -27,10 +27,6 @@ public class TpTraficoEscaleta implements Serializable {
 	private Time cortes;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="FECHA_MODIFICACION")
-	private Date fechaModificacion;
-
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="FECHA_REGISTRO")
 	private Date fechaRegistro;
 
@@ -79,14 +75,6 @@ public class TpTraficoEscaleta implements Serializable {
 
 	public void setCortes(Time cortes) {
 		this.cortes = cortes;
-	}
-
-	public Date getFechaModificacion() {
-		return this.fechaModificacion;
-	}
-
-	public void setFechaModificacion(Date fechaModificacion) {
-		this.fechaModificacion = fechaModificacion;
 	}
 
 	public Date getFechaRegistro() {

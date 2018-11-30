@@ -13,76 +13,59 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.com.tp.trafico.dto.request.ActualizaEscaletaDTORequest;
-import mx.com.tp.trafico.dto.request.ActualizaSpotDTORequest;
 import mx.com.tp.trafico.dto.request.GuardaEscaletaDTORequest;
-import mx.com.tp.trafico.dto.request.GuardaSpotDTORequest;
 import mx.com.tp.trafico.dto.response.ActualizaEscaletaDTOResponse;
-import mx.com.tp.trafico.dto.response.ActualizaSpotDTOResponse;
 import mx.com.tp.trafico.dto.response.BusquedaEscaletaDTOResponse;
-import mx.com.tp.trafico.dto.response.BusquedaEscaletaIdentDTOResponse;
 import mx.com.tp.trafico.dto.response.BusquedaEscaletaIdentTodosDTOResponse;
-import mx.com.tp.trafico.dto.response.BusquedaSpotDTOResponse;
 import mx.com.tp.trafico.dto.response.ConsultaEscaletaDTOResponse;
-import mx.com.tp.trafico.dto.response.ConsultaSpotDTOResponse;
 import mx.com.tp.trafico.dto.response.EliminaEscaletaDTOResponse;
-import mx.com.tp.trafico.dto.response.EliminaSpotDTOResponse;
 import mx.com.tp.trafico.dto.response.GuardaEscaletaDTOResponse;
-import mx.com.tp.trafico.dto.response.GuardaSpotDTOResponse;
-import mx.com.tp.trafico.manager.EscaletaManager;
-import mx.com.tp.trafico.manager.SpotManager;
+import mx.com.tp.trafico.service.EscaletaService;
 
 @RestController
 @RequestMapping("/escaleta")
 public class EscaletaRestController {
 
 	@Autowired
-	public EscaletaManager escaletaManager;
-	
+	public EscaletaService escaletaService;
+
 	@GetMapping("/list")
-	public ResponseEntity<ConsultaEscaletaDTOResponse> consultaEscaletas(){
-		ConsultaEscaletaDTOResponse responseManager = escaletaManager.listaEscaletas();
+	public ResponseEntity<ConsultaEscaletaDTOResponse> consultaEscaletas() {
+		ConsultaEscaletaDTOResponse responseManager = escaletaService.listaEscaletas();
 		return new ResponseEntity<ConsultaEscaletaDTOResponse>(responseManager, HttpStatus.OK);
-		
 	}
-	
+
 	@PostMapping("/save")
-	public ResponseEntity<GuardaEscaletaDTOResponse> guardarEscaleta(@RequestBody GuardaEscaletaDTORequest request){
-		GuardaEscaletaDTOResponse responseManager = escaletaManager.guardarEscaleta(request);
+	public ResponseEntity<GuardaEscaletaDTOResponse> guardarEscaleta(@RequestBody GuardaEscaletaDTORequest request) {
+		GuardaEscaletaDTOResponse responseManager = escaletaService.guardarEscaleta(request);
 		return new ResponseEntity<GuardaEscaletaDTOResponse>(responseManager, HttpStatus.OK);
-		
 	}
-	
+
 	@GetMapping("/findById/{id}")
-	public ResponseEntity<BusquedaEscaletaDTOResponse> buscarByIdEscaleta(@PathVariable(value="id") Long idEscaleta){
-		BusquedaEscaletaDTOResponse responseManager = escaletaManager.busquedaEscaletaId(idEscaleta);
+	public ResponseEntity<BusquedaEscaletaDTOResponse> buscarByIdEscaleta(@PathVariable(value = "id") Long idEscaleta) {
+		BusquedaEscaletaDTOResponse responseManager = escaletaService.busquedaEscaletaId(idEscaleta);
 		return new ResponseEntity<BusquedaEscaletaDTOResponse>(responseManager, HttpStatus.OK);
-		
+
 	}
-	
+
 	@PutMapping("/update/{id}")
-	public ResponseEntity<ActualizaEscaletaDTOResponse> actualizaEscaleta(@RequestBody ActualizaEscaletaDTORequest request, @PathVariable(value="id") Long idEscaleta){
-		ActualizaEscaletaDTOResponse responseManager = escaletaManager.actualizarEscaleta(request, idEscaleta);
+	public ResponseEntity<ActualizaEscaletaDTOResponse> actualizaEscaleta(
+			@RequestBody ActualizaEscaletaDTORequest request, @PathVariable(value = "id") Long idEscaleta) {
+		ActualizaEscaletaDTOResponse responseManager = escaletaService.actualizarEscaleta(request, idEscaleta);
 		return new ResponseEntity<ActualizaEscaletaDTOResponse>(responseManager, HttpStatus.OK);
-		
 	}
-	
+
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<EliminaEscaletaDTOResponse> eliminaEscaleta(@PathVariable(value="id") Long idEscaleta){
-		EliminaEscaletaDTOResponse responseManager = escaletaManager.eliminarEscaletaId(idEscaleta);
+	public ResponseEntity<EliminaEscaletaDTOResponse> eliminaEscaleta(@PathVariable(value = "id") Long idEscaleta) {
+		EliminaEscaletaDTOResponse responseManager = escaletaService.eliminarEscaletaId(idEscaleta);
 		return new ResponseEntity<EliminaEscaletaDTOResponse>(responseManager, HttpStatus.OK);
 	}
-	
-//	@GetMapping("/findByIdentTod/{identificador}")
-//	public ResponseEntity<BusquedaEscaletaIdentTodosDTOResponse> buscarIdentificadorTodosEscaleta(@PathVariable(value="identificador") String identificador){
-//		BusquedaEscaletaIdentTodosDTOResponse responseManager = escaletaManager.busquedaEscaletaIdentTodos(identificador);
-//		return new ResponseEntity<BusquedaEscaletaIdentTodosDTOResponse>(responseManager, HttpStatus.OK);
-//		
-//	}
-//	
-//	@GetMapping("/findByIdent/{identificador}")
-//	public ResponseEntity<BusquedaEscaletaIdentDTOResponse> buscarIdentificadorEscaleta(@PathVariable(value="identificador") String identificador){
-//		BusquedaEscaletaIdentDTOResponse responseManager = escaletaManager.busquedaEscaletaIdent(identificador);
-//		return new ResponseEntity<BusquedaEscaletaIdentDTOResponse>(responseManager, HttpStatus.OK);
-//		
-//	}
+
+	@GetMapping("/find/identificador/{identificador}")
+	public ResponseEntity<BusquedaEscaletaIdentTodosDTOResponse> buscarIdentificadorTodosEscaleta(
+			@PathVariable(value = "identificador") String idEscaleta) {
+		BusquedaEscaletaIdentTodosDTOResponse responseManager = escaletaService.busquedaEscaletaIdentTodos(idEscaleta);
+		return new ResponseEntity<BusquedaEscaletaIdentTodosDTOResponse>(responseManager, HttpStatus.OK);
+	}
+
 }

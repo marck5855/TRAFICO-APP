@@ -1,20 +1,28 @@
 package mx.com.tp.trafico.dto.request;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-public class ActualizaEscaletaDTORequest extends SerializableRequest {
+import mx.com.tp.trafico.entity.TpTraficoSpot;
 
+public class ActualizaEscaletaDTORequest implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2750887471210870968L;
 	private Long idEscaleta;
 	private int breack;
 	private Time cortes;
-	private Date fechaModificacion;
 	private Date fechaRegistro;
 	private String franja;
 	private Time horaOrd;
 	private Time horario;
 	private String identificador;
 	private int posicion;
+	private TpTraficoSpot tpTraficoSpot;
+
 
 	public Long getIdEscaleta() {
 		return idEscaleta;
@@ -38,14 +46,6 @@ public class ActualizaEscaletaDTORequest extends SerializableRequest {
 
 	public void setCortes(Time cortes) {
 		this.cortes = cortes;
-	}
-
-	public Date getFechaModificacion() {
-		return fechaModificacion;
-	}
-
-	public void setFechaModificacion(Date fechaModificacion) {
-		this.fechaModificacion = fechaModificacion;
 	}
 
 	public Date getFechaRegistro() {
@@ -96,4 +96,14 @@ public class ActualizaEscaletaDTORequest extends SerializableRequest {
 		this.posicion = posicion;
 	}
 
+	public TpTraficoSpot getTpTraficoSpot() {
+		return tpTraficoSpot;
+	}
+
+	public void setTpTraficoSpot(TpTraficoSpot tpTraficoSpot) {
+		this.tpTraficoSpot = tpTraficoSpot;
+	}
+
+	
+	
 }

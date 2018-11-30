@@ -1,11 +1,16 @@
 package mx.com.tp.trafico.dto.response;
 
+import java.io.Serializable;
 import java.util.List;
 
 import mx.com.tp.trafico.entity.CatPrefijo;
 
-public class ConsultaPrefijoDTOResponse{
+public class ConsultaPrefijoDTOResponse implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8031444698967670581L;
 	private List<CatPrefijo> prefijo;
 
 	public ConsultaPrefijoDTOResponse(List<CatPrefijo> prefijo) {

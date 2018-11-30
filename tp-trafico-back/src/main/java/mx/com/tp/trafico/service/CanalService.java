@@ -1,24 +1,26 @@
 package mx.com.tp.trafico.service;
 
-import java.util.List;
-
-import mx.com.tp.trafico.entity.TpTraficoCanal;
+import mx.com.tp.trafico.dto.request.ActualizaCanalDTORequest;
+import mx.com.tp.trafico.dto.request.GuardaCanalDTORequest;
+import mx.com.tp.trafico.dto.response.ActualizaCanalDTOResponse;
+import mx.com.tp.trafico.dto.response.BuscarCanalActivoDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaCanalDTOResponse;
+import mx.com.tp.trafico.dto.response.ConsultaCanalDTOResponse;
+import mx.com.tp.trafico.dto.response.EliminaCanalDTOResponse;
+import mx.com.tp.trafico.dto.response.GuardaCanalDTOResponse;
 
 public interface CanalService {
 
-	//Listar Canales
-	public List<TpTraficoCanal> findAll();
-
-	//Guardar Canal
-	public TpTraficoCanal saveCanal(TpTraficoCanal canal);
+	public ActualizaCanalDTOResponse actualizarCanal(ActualizaCanalDTORequest request, Long idCanal);
 	
-	//Eliminar Canal
-	public void deleteCanal(Long id);
+	public ConsultaCanalDTOResponse listaCanales();
 	
-	//Actualizar Canal
-	public void updateCanal (TpTraficoCanal canal);
-
-	//Buscar Canal por id
-	public TpTraficoCanal findByIdCanal(Long idCanal);
+	public BusquedaCanalDTOResponse busquedaCanalId(Long idCanal);
+	
+	public EliminaCanalDTOResponse eliminarCanalId(Long idCanal);
+	
+	public GuardaCanalDTOResponse guardarCanal(GuardaCanalDTORequest request);
+	
+	public BuscarCanalActivoDTOResponse busqudaCanalActivo();
 
 }

@@ -1,16 +1,29 @@
 package mx.com.tp.trafico.service;
 
-import java.util.List;
-
-import mx.com.tp.trafico.entity.TpTraficoSpot;
+import mx.com.tp.trafico.dto.request.ActualizaSpotDTORequest;
+import mx.com.tp.trafico.dto.request.BusquedaSpotClienteDTORequest;
+import mx.com.tp.trafico.dto.request.GuardaSpotDTORequest;
+import mx.com.tp.trafico.dto.response.ActualizaSpotDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaSpotClienteDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaSpotDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaSpotIngestadoDTOResponse;
+import mx.com.tp.trafico.dto.response.ConsultaSpotDTOResponse;
+import mx.com.tp.trafico.dto.response.EliminaSpotDTOResponse;
+import mx.com.tp.trafico.dto.response.GuardaSpotDTOResponse;
 
 public interface SpotService {
 
-	public List<TpTraficoSpot> findAll();
+	public ActualizaSpotDTOResponse actualizarSpot(ActualizaSpotDTORequest request, Long idspot);
+
+	public ConsultaSpotDTOResponse listaSpots();
+
+	public BusquedaSpotDTOResponse busquedaSpotId(Long idspot);
+
+	public EliminaSpotDTOResponse eliminarSpotId(Long idspot);
+
+	public GuardaSpotDTOResponse guardarSpot(GuardaSpotDTORequest request);
 	
-	public TpTraficoSpot save(TpTraficoSpot spot);
+	public BusquedaSpotIngestadoDTOResponse busquedaSpotIngesta();
 	
-	public TpTraficoSpot findById(Long id);
-	
-	public void delete(Long id);
+	public BusquedaSpotClienteDTOResponse busquedaSpotCliente(BusquedaSpotClienteDTORequest request);
 }

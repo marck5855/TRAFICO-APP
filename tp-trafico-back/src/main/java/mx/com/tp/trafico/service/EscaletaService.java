@@ -1,21 +1,26 @@
 package mx.com.tp.trafico.service;
 
-import java.util.List;
-
-import mx.com.tp.trafico.entity.TpTraficoEscaleta;
+import mx.com.tp.trafico.dto.request.ActualizaEscaletaDTORequest;
+import mx.com.tp.trafico.dto.request.GuardaEscaletaDTORequest;
+import mx.com.tp.trafico.dto.response.ActualizaEscaletaDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaEscaletaDTOResponse;
+import mx.com.tp.trafico.dto.response.BusquedaEscaletaIdentTodosDTOResponse;
+import mx.com.tp.trafico.dto.response.ConsultaEscaletaDTOResponse;
+import mx.com.tp.trafico.dto.response.EliminaEscaletaDTOResponse;
+import mx.com.tp.trafico.dto.response.GuardaEscaletaDTOResponse;
 
 public interface EscaletaService {
 
-	public List<TpTraficoEscaleta> findAll();
+	public ActualizaEscaletaDTOResponse actualizarEscaleta(ActualizaEscaletaDTORequest request, Long idEscaleta);
 
-	public TpTraficoEscaleta save(TpTraficoEscaleta escaleta);
-	
-	public TpTraficoEscaleta findById(Long id);
-	
-	public void delete (Long id);
-	
-//	public TpTraficoEscaleta findByIdentificador(String identificador);
-//	
-//	public List<TpTraficoEscaleta> findAllIdentificador (String identificador);
+	public ConsultaEscaletaDTOResponse listaEscaletas();
+
+	public BusquedaEscaletaDTOResponse busquedaEscaletaId(Long idEscaleta);
+
+	public EliminaEscaletaDTOResponse eliminarEscaletaId(Long idEscaleta);
+
+	public GuardaEscaletaDTOResponse guardarEscaleta(GuardaEscaletaDTORequest request);
+
+	public BusquedaEscaletaIdentTodosDTOResponse busquedaEscaletaIdentTodos(String identificador);
 
 }

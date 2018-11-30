@@ -19,7 +19,7 @@ public class TpTraficoConfiguracionFtp implements Serializable {
 	private Long idConfiguracionFtp;
 
 	@Column(name="IP_SERVIDOR")
-	private int ipServidor;
+	private String ipServidor;
 
 	@Column(name="PASSWORD")
 	private String password;
@@ -38,11 +38,11 @@ public class TpTraficoConfiguracionFtp implements Serializable {
 		this.idConfiguracionFtp = idConfiguracionFtp;
 	}
 
-	public int getIpServidor() {
+	public String getIpServidor() {
 		return this.ipServidor;
 	}
 
-	public void setIpServidor(int ipServidor) {
+	public void setIpServidor(String ipServidor) {
 		this.ipServidor = ipServidor;
 	}
 

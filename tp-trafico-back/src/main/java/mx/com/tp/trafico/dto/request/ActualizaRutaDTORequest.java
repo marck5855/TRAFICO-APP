@@ -1,10 +1,13 @@
 package mx.com.tp.trafico.dto.request;
 
-import java.sql.Time;
-import java.util.Date;
+import java.io.Serializable;
 
-public class ActualizaRutaDTORequest extends SerializableRequest{
+public class ActualizaRutaDTORequest implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2414057249508314791L;
 	private String descripcion;
 	private String phat;
 	

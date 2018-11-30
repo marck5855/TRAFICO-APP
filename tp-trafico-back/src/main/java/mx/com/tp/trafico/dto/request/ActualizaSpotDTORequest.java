@@ -1,22 +1,28 @@
 package mx.com.tp.trafico.dto.request;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-public class ActualizaSpotDTORequest extends SerializableRequest {
+import mx.com.tp.trafico.entity.CatPrefijo;
+import mx.com.tp.trafico.entity.TpTraficoCliente;
 
+public class ActualizaSpotDTORequest implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6378290301275565161L;
 	private String alias;
 	private String campania;
 	private String clasificacion;
 	private Time duracion;
-	private int estatus;
+	private String estatus;
 	private Date fechaCreacion;
 	private Date fechaEstreno;
 	private Date fechaModificacion;
 	private Date fechaRegistro;
 	private Date fechaVigencia;
-	private String pathproxy;
-	private String pathtarget;
 	private int precio1a;
 	private int precio1aa;
 	private int precio1aaa;
@@ -35,6 +41,10 @@ public class ActualizaSpotDTORequest extends SerializableRequest {
 	private int precio4b;
 	private String separador;
 	private String version;
+	private TpTraficoCliente tpTraficoCliente;
+	private CatPrefijo catPrefijo;
+
+
 
 	public String getAlias() {
 		return alias;
@@ -66,14 +76,6 @@ public class ActualizaSpotDTORequest extends SerializableRequest {
 
 	public void setDuracion(Time duracion) {
 		this.duracion = duracion;
-	}
-
-	public int getEstatus() {
-		return estatus;
-	}
-
-	public void setEstatus(int estatus) {
-		this.estatus = estatus;
 	}
 
 	public Date getFechaCreacion() {
@@ -114,22 +116,6 @@ public class ActualizaSpotDTORequest extends SerializableRequest {
 
 	public void setFechaVigencia(Date fechaVigencia) {
 		this.fechaVigencia = fechaVigencia;
-	}
-
-	public String getPathproxy() {
-		return pathproxy;
-	}
-
-	public void setPathproxy(String pathproxy) {
-		this.pathproxy = pathproxy;
-	}
-
-	public String getPathtarget() {
-		return pathtarget;
-	}
-
-	public void setPathtarget(String pathtarget) {
-		this.pathtarget = pathtarget;
 	}
 
 	public int getPrecio1a() {
@@ -276,4 +262,29 @@ public class ActualizaSpotDTORequest extends SerializableRequest {
 		this.version = version;
 	}
 
+	public String getEstatus() {
+		return estatus;
+	}
+
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
+
+	public TpTraficoCliente getTpTraficoCliente() {
+		return tpTraficoCliente;
+	}
+
+	public void setTpTraficoCliente(TpTraficoCliente tpTraficoCliente) {
+		this.tpTraficoCliente = tpTraficoCliente;
+	}
+
+	public CatPrefijo getCatPrefijo() {
+		return catPrefijo;
+	}
+
+	public void setCatPrefijo(CatPrefijo catPrefijo) {
+		this.catPrefijo = catPrefijo;
+	}
+
+	
 }
